@@ -58,7 +58,8 @@ struct ContentView: View {
                 allowsMultipleSelection: false
             ) { result in
                 switch result {
-                case .success(let url):
+                case .success(let urls):
+                    guard let url = urls.first else { return }
                     viewModel.importDocument(from: url)
                 case .failure(let error):
                     viewModel.presentImportError(error)
@@ -622,3 +623,4 @@ private enum DistanceFormatter {
         return formatter.string(from: NSNumber(value: kilometers)) ?? "0"
     }
 }
+
