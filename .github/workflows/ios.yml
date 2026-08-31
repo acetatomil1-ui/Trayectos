@@ -1,0 +1,40 @@
+name: iOS
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and test
+        run: >-
+          xcodebuild test
+          -project Trayectos.xcodeproj
+          -scheme Trayectos
+          -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest'
+          CODE_SIGNING_ALLOWED=NO
+      - name: Build unsigned device app
+        run: >-
+          xcodebuild build
+          -project Trayectos.xcodeproj
+          -scheme Trayectos
+          -configuration Release
+          -sdk iphoneos
+          -destination 'generic/platform=iOS'
+          -derivedDataPath .build/DerivedData
+          CODE_SIGNING_ALLOWED=NO
+          CODE_SIGNING_REQUIRED=NO
+      - name: Package unsigned IPA
+        run: |
+          mkdir Payload
+          cp -R .build/DerivedData/Build/Products/Release-iphoneos/Trayectos.app Payload/
+          ditto -c -k --sequesterRsrc --keepParent Payload Trayectos-unsigned.ipa
+      - name: Upload unsigned IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: Trayectos-unsigned-ipa
+          path: Trayectos-unsigned.ipa
+          if-no-files-found: error

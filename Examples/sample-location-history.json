@@ -1,0 +1,63 @@
+[
+  {
+    "startTime": "2026-08-25T08:00:00.000-03:00",
+    "endTime": "2026-08-25T09:00:00.000-03:00",
+    "timelinePath": [
+      {
+        "point": "geo:-34.603722,-58.381592",
+        "durationMinutesOffsetFromStartTime": "0"
+      },
+      {
+        "point": "geo:-34.588100,-58.406700",
+        "durationMinutesOffsetFromStartTime": "22"
+      },
+      {
+        "point": "geo:-34.572200,-58.438700",
+        "durationMinutesOffsetFromStartTime": 47
+      }
+    ]
+  },
+  {
+    "startTime": "2026-08-25T09:05:00.000-03:00",
+    "endTime": "2026-08-25T09:25:00.000-03:00",
+    "activity": {
+      "start": "geo:-34.572200,-58.438700",
+      "end": "geo:-34.558900,-58.459600",
+      "distanceMeters": "2860.5",
+      "topCandidate": {
+        "type": "in passenger vehicle",
+        "probability": "0.91"
+      }
+    }
+  },
+  {
+    "startTime": "2026-08-25T09:25:00.000-03:00",
+    "endTime": "2026-08-25T10:00:00.000-03:00",
+    "visit": {
+      "topCandidate": {
+        "semanticType": "Unknown",
+        "placeID": "sample-place-id",
+        "placeLocation": "geo:-34.558900,-58.459600"
+      }
+    }
+  },
+  {
+    "startTime": "2026-08-26T11:00:00.000-03:00",
+    "endTime": "2026-08-26T12:00:00.000-03:00",
+    "timelinePath": [
+      {
+        "point": "geo:-31.416700,-64.183300",
+        "durationMinutesOffsetFromStartTime": "5"
+      },
+      {
+        "point": "geo:-31.399500,-64.207200",
+        "durationMinutesOffsetFromStartTime": "31"
+      },
+      {
+        "point": "geo:-31.383000,-64.229000",
+        "durationMinutesOffsetFromStartTime": "55"
+      }
+    ]
+  }
+]
+
